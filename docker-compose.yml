@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  monerod-exporter:
+    image: lchaia/monerod-exporter
+    container_name: monerod-exporter
+    restart: unless-stopped
+    build:
+      context: ./src
+    ports:
+      - 9396:9396
+    environment: 
+      DAEMON_HOST: http://your-monerod:18089
